@@ -15,7 +15,22 @@ public class VendaService {
     VendaRepository repository;
 
     public List<Venda> a() {
-        return repository.findByDesconto(0);
+        return repository.findByDescontoNull();
+    }
+    public List<Venda> b() {
+        return repository.findByDescontoNotNull();
+    }
+    public List<Venda> c() {
+        return repository.findByOrderByValorUnitario();
+    }
+    public Venda d() {
+        return repository.findTopByOrderByQuantidadeDesc();
+    }
+    public List<Venda> e() {
+        return repository.findByQuantidadeGreaterThanEqual(10);
+    }
+    public List<Integer> f() {
+        return repository.findByNotaFiscalAcimaDe500();
     }
 
 }
