@@ -24,7 +24,7 @@ public interface VendaRepository extends CrudRepository<Venda, Integer> {
     public Venda findTopByOrderByQuantidadeDesc();
     
     // e- Consulte as NF que foram vendidas mais de 10 unidades de pelo menos um produto.
-    public List<Venda> findByQuantidadeGreaterThanEqual(Integer quantidade);
+    public List<Venda> findByQuantidadeGreaterThanEqual(Integer quant);
     
     // f- Pesquise o valor total das NF, onde esse valor seja maior que 500, e ordene o resultado do maior valor para o menor.
     @Query("select v.idNotaFiscal from Venda v group by idNotaFiscal having sum(quantidade*valorUnitario) > 500 order by sum(quantidade*valorUnitario)")
